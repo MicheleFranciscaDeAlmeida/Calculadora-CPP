@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+double soma(double a, double b) {
+    return a + b;
+}
+
+double subtracao(double a, double b) {
+    return a - b;
+}
+
+double multiplicacao(double a, double b) {
+    return a * b;
+}
+
+double divisao(double a, double b) {
+    return a / b;
+}
+
+int main() {
+    int opcao;
+    double num1, num2, resultado;
+
+    do {
+        cout << "\n=== Calculadora em C++ ===\n";
+        cout << "1 - Soma\n";
+        cout << "2 - Subtracao\n";
+        cout << "3 - Multiplicacao\n";
+        cout << "4 - Divisao\n";
+        cout << "0 - Sair\n";
+        cout << "Escolha uma opcao: ";
+        cin >> opcao;
+
+        if (opcao == 0) {
+            cout << "Saindo...\n";
+            break;
+        }
+
+        cout << "Digite o primeiro numero: ";
+        cin >> num1;
+        cout << "Digite o segundo numero: ";
+        cin >> num2;
+
+        switch(opcao) {
+            case 1:
+                resultado = soma(num1, num2);
+                break;
+            case 2:
+                resultado = subtracao(num1, num2);
+                break;
+            case 3:
+                resultado = multiplicacao(num1, num2);
+                break;
+            case 4:
+                if (num2 == 0) {
+                    cout << "Erro: divisao por zero!\n";
+                    continue;
+                }
+                resultado = divisao(num1, num2);
+                break;
+            default:
+                cout << "Opcao invalida!\n";
+                continue;
+        }
+
+        cout << "Resultado: " << resultado << endl;
+
+    } while (true);
+
+    return 0;
+}
